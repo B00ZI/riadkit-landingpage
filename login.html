@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Log in — RiadKit</title>
+    <meta name="description" content="Log in to your RiadKit staff dashboard." />
+    <meta name="theme-color" content="#FAF8F5" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23A63D40'/%3E%3Cpath d='M9 26V16a7 7 0 0 1 14 0v10' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M13.5 26v-4.5M18.5 26v-4.5' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='13' r='2' fill='%23fff'/%3E%3C/svg%3E"
+    />
+    <link rel="preload" href="assets/fonts/manrope-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script defer src="js/main.js"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="shell flex h-20 items-center">
+      <a href="index.html" class="flex items-center gap-2.5" aria-label="RiadKit — home">
+        <span class="grid h-10 w-10 place-items-center rounded-xl bg-primary text-white shadow-[0_8px_18px_-10px_rgba(166,61,64,.9)]">
+          <svg viewBox="0 0 32 32" class="h-6 w-6" fill="none" aria-hidden="true">
+            <path d="M7 27V15a9 9 0 0 1 18 0v12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+            <path d="M12.5 27v-6.5M19.5 27v-6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+            <circle cx="16" cy="11.5" r="2.2" fill="currentColor" />
+          </svg>
+        </span>
+        <span class="text-lg font-extrabold tracking-tight text-ink">Riad<span class="text-primary">Kit</span></span>
+      </a>
+    </header>
+
+    <main class="relative overflow-hidden pb-24">
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+        <div class="absolute -right-40 -top-32 h-96 w-96 rounded-full bg-sand/60 blur-3xl"></div>
+        <div class="absolute -left-32 top-40 h-80 w-80 rounded-full bg-primary/10 blur-3xl"></div>
+        <div class="pattern-zellige absolute right-0 top-0 h-72 w-72 opacity-60"></div>
+      </div>
+
+      <div class="shell grid gap-12 pt-6 lg:grid-cols-2 lg:items-center">
+        <div>
+          <p class="eyebrow">Staff area</p>
+          <h1 class="mt-4 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Welcome back.</h1>
+          <p class="mt-4 max-w-md text-base leading-relaxed text-muted">
+            Sign in to view guest requests, update your riad's information and manage everything
+            guests see in their portal.
+          </p>
+          <a href="index.html" class="btn-secondary mt-8">← Back to the website</a>
+        </div>
+
+        <div class="card p-6 sm:p-8">
+          <h2 class="text-lg font-extrabold text-ink">Log in to RiadKit</h2>
+          <form id="login-form" class="mt-6 space-y-4" novalidate>
+            <div>
+              <label for="l-email" class="mb-1.5 block text-xs font-bold uppercase tracking-wider text-muted">Email</label>
+              <input id="l-email" name="email" type="email" required autocomplete="email" placeholder="you@yourriad.com"
+                class="w-full rounded-xl border border-line bg-ivory px-4 py-3 text-sm font-semibold text-ink placeholder:text-muted/60 focus:border-primary focus:bg-white" />
+            </div>
+            <div>
+              <label for="l-password" class="mb-1.5 block text-xs font-bold uppercase tracking-wider text-muted">Password</label>
+              <input id="l-password" name="password" type="password" required autocomplete="current-password" placeholder="••••••••"
+                class="w-full rounded-xl border border-line bg-ivory px-4 py-3 text-sm font-semibold text-ink placeholder:text-muted/60 focus:border-primary focus:bg-white" />
+            </div>
+            <button type="submit" class="btn-primary w-full">Log in</button>
+            <p id="login-status" class="text-sm font-semibold text-muted" role="status" aria-live="polite">
+              This preview is not connected to a RiadKit account system yet.
+            </p>
+          </form>
+          <p class="mt-6 border-t border-line pt-5 text-sm text-muted">
+            Don't have an account yet?
+            <a href="index.html#request-demo" class="font-bold text-primary hover:underline">Request a demo</a>
+            and we'll set you up.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.getElementById("login-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        var status = document.getElementById("login-status");
+        status.textContent =
+          "Sign-in isn't enabled in this preview. Request a demo and we'll create your riad's account.";
+        status.className = "text-sm font-semibold text-primary-dark";
+      });
+    </script>
+  </body>
+</html>
